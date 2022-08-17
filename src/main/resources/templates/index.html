@@ -1,0 +1,32 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>CRUD Clientes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+
+</head>
+<body>
+<a href="insert">Inserir novo</a> | <a href="index">Ver todos</a> <br> <br>
+
+<table style="width:100%">
+    <tr>
+        <th>ID</td>
+        <th>Nome</td>
+        <th>CPF</td>
+        <th>E-mail</td>
+        <th>Excluir?</td>
+        <th>Alterar?</td>
+    </tr>
+    <tr th:each="Filme : ${Filmes}">
+        <td th:text="${Filme.id}"></td>
+        <td><a th:href="@{/delete(id=${cliente.id})}">Deletar</a></td>
+        <td><a th:href="@{/update(id=${cliente.id})}">Alterar</a></td>
+    </tr>
+</table>
+</body>
+</html>
